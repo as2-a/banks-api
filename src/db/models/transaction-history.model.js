@@ -31,10 +31,10 @@ const TransactionHistorySchema = {
         type: DataTypes.DOUBLE
     },
     HT_TIPO_OPERACION: {
-        type: DataTypes.DOUBLE
+        type: DataTypes.STRING
     },
     HT_FECHA: {
-        type: DataTypes.DOUBLE
+        type: DataTypes.DATE
     },
     TRA_TRANSACCION: {
         allowNull: false,
