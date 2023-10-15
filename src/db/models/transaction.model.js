@@ -79,7 +79,11 @@ const TransactionSchema = {
             model: 'DocumentState',
             key: 'ed_estado_documento'
         }
-    }
+        
+    },
+    tra_monto_actual_cuenta: {
+        type: DataTypes.DOUBLE
+    },
 };
 
 module.exports = { Transaction, TransactionSchema };

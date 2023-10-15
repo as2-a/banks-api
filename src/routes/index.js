@@ -4,7 +4,6 @@ const banksRouter = require('./banks.router');
 const additionalFieldsRouter = require('./additional-fields.router');
 const conciliationRouter = require('./conciliation.router');
 const documentStateRouter = require('./document-state.router');
-const transactionHistoryRouter = require('./transaction-history.router');
 const currencyRouter = require('./currency.router');
 const transactionOriginRouter = require('./transaction-origin.router');
 const accountTypeRouter = require('./account-type.router');
@@ -21,7 +20,6 @@ function routerApi(app) {
   router.use('/conciliation', conciliationRouter);
   router.use('/document-state', documentStateRouter);
   router.use('/currency', currencyRouter);
-  router.use('/transaction-history', transactionHistoryRouter);
   router.use('/transaction-origin', transactionOriginRouter);
   router.use('/account-type', accountTypeRouter);
   router.use('/document-type', documentTypeRouter);
