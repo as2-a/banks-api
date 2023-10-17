@@ -30,6 +30,16 @@ class AccountsService {
       await model.destroy();
       return { deleted: true };
     }
+
+    async findByBank(bank) {
+        const accounts = await models.Accounts.findAll({
+          where: {
+            BNC_BANCO: bank,
+          },
+        });
+  
+        return accounts;
+    }
   
   }
   

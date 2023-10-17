@@ -1,5 +1,7 @@
 const BanksService = require("../services/banks.service");
 const service = new BanksService();
+const AccountsService = require("../services/accounts.service");
+const aService = new AccountsService();
 
 const create = async (req, res) => {
   try {
@@ -13,6 +15,16 @@ const create = async (req, res) => {
 const get = async (req, res) => {
   try {
     const response = await service.find();
+    res.json(response);
+  } catch (error) {
+    res.status(500).send({ success: false, message: error.message });
+  }
+};
+
+const getAccounts = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const response = await aService.findByBank(id);
     res.json(response);
   } catch (error) {
     res.status(500).send({ success: false, message: error.message });
@@ -55,5 +67,6 @@ module.exports = {
   get,
   getById,
   update,
-  _delete
+  _delete,
+  getAccounts
 };
