@@ -29,6 +29,16 @@ const getById = async (req, res) => {
   }
 };
 
+const getByDate = async (req, res) => {
+  try {
+    const { initDate, endDate } = req.params;
+    const response = await service.findByDate(initDate, endDate);
+    res.json(response);
+  } catch (error) {
+    res.status(500).send({ success: false, message: error.message });
+  }
+};
+
 const update = async (req, res) => {
   try {
     const { id } = req.params;
@@ -55,5 +65,6 @@ module.exports = {
   get,
   getById,
   update,
-  _delete
+  _delete,
+  getByDate
 };

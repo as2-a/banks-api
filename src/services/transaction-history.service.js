@@ -1,4 +1,5 @@
 const { models } = require('../libs/sequelize');
+const { Op } = require('sequelize');
 
 class TransactionHistoryService { 
   
@@ -11,6 +12,17 @@ class TransactionHistoryService {
 
     async findOne(id) {
       const res = await models.ViewTransactionHistory.findByPk(id);
+      return res;
+    }
+
+    async findByDate(initDate, endDate) {
+      const res = await models.ViewTransactionHistory.findAll({
+        where: {
+          fecha: {
+            [Op.between]: [initDate, endDate],
+          },
+        },
+      });
       return res;
     }
 
