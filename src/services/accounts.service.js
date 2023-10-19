@@ -5,15 +5,23 @@ class AccountsService {
     constructor() {}
 
     async find() {
-      const res = await models.Accounts.findAll();
+      const res = await models.Accounts.findAll({
+        where: {
+          CNT_ESTADO: true,
+        },
+      });
       return res;
     }
-
+  
     async findOne(id) {
       const res = await models.Accounts.findByPk(id);
-      return res;
+    
+      if (res && res.CNT_ESTADO === true) {
+        return res;
+      } else {
+        return null;
+      }
     }
-
     async create(data) {
       const res = await models.Accounts.create(data);
       return res;
