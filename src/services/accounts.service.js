@@ -35,8 +35,13 @@ class AccountsService {
 
     async delete(id) {
       const model = await this.findOne(id);
-      await model.destroy();
-      return { deleted: true };
+      
+      if (model) {
+        await model.update({ CNT_ESTADO: false });
+        return { deleted: true};
+      } else {
+        return { deleted: false,};
+      }
     }
 
     async findByBank(bank) {
