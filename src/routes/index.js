@@ -10,6 +10,7 @@ const accountTypeRouter = require('./account-type.router');
 const documentTypeRouter = require('./document-type.router');
 const transactionTypeRouter = require('./transaction-type.router');
 const transactionRouter = require('./transaction.router');
+const transactionHistoryRouter = require('./transaction-history.router');
 
 function routerApi(app) {
   const router = express.Router();
@@ -25,6 +26,7 @@ function routerApi(app) {
   router.use('/document-type', documentTypeRouter);
   router.use('/transaction-type', transactionTypeRouter);
   router.use('/transaction', transactionRouter);
+  router.use('/transaction-history', transactionHistoryRouter);
 }
 
 module.exports = routerApi;

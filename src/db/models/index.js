@@ -9,6 +9,7 @@ const { AccountType, AccountTypeSchema } = require('./account-type.model');
 const { DocumentType, DocumentTypeSchema } = require('./document-type.model');
 const { TransactionType, TransactionTypeSchema } = require('./transaction-type.model');
 const { Transaction, TransactionSchema } = require('./transaction.model');
+const { ViewTransactionHistory, ViewTransactionHistorySchema } = require('./transaction-history.model');
 
 function setupModels(sequelize) {
     Accounts.init(AccountsSchema, Accounts.config(sequelize));
@@ -22,6 +23,7 @@ function setupModels(sequelize) {
     DocumentType.init(DocumentTypeSchema, DocumentType.config(sequelize));
     TransactionType.init(TransactionTypeSchema, TransactionType.config(sequelize));
     Transaction.init(TransactionSchema, Transaction.config(sequelize));
+    ViewTransactionHistory.init(ViewTransactionHistorySchema, ViewTransactionHistory.config(sequelize));
 }
 
 module.exports = setupModels;
