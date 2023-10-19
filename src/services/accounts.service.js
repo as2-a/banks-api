@@ -43,6 +43,7 @@ class AccountsService {
         const accounts = await models.Accounts.findAll({
           where: {
             BNC_BANCO: bank,
+            CNT_ESTADO: true,
           },
         });
   
