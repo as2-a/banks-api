@@ -74,6 +74,16 @@ class TransactionHistoryService {
           }
         },
       });
+    } else if (account && !bank && initDate && endDate) {
+      console.log('todos los params')
+      res = await models.ViewTransactionHistory.findAll({
+        where: {
+          cuenta: account,
+          fecha: {
+            [Op.between]: [initDate, endDate],
+          },
+        },
+      });
     }
 
     return res;
