@@ -31,8 +31,17 @@ const getById = async (req, res) => {
 
 const getByDate = async (req, res) => {
   try {
-    const { initDate, endDate } = req.params;
-    const response = await service.findByDate(initDate, endDate);
+    const { initDate, endDate, account } = req.params;
+    const response = await service.findByDateAndAccount(account,initDate, endDate);
+    res.json(response);
+  } catch (error) {
+    res.status(500).send({ success: false, message: error.message });
+  }
+};
+
+const getByAccounts = async (req, res) => {
+  try {
+    const response = await service.findTenByAccounts(req.body);
     res.json(response);
   } catch (error) {
     res.status(500).send({ success: false, message: error.message });
@@ -66,5 +75,6 @@ module.exports = {
   getById,
   update,
   _delete,
-  getByDate
+  getByDate,
+  getByAccounts
 };

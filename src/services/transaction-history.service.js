@@ -15,9 +15,10 @@ class TransactionHistoryService {
       return res;
     }
 
-    async findByDate(initDate, endDate) {
+    async findByDateAndAccount(account, initDate, endDate) {
       const res = await models.ViewTransactionHistory.findAll({
         where: {
+          cuenta: account,
           fecha: {
             [Op.between]: [initDate, endDate],
           },
@@ -25,6 +26,20 @@ class TransactionHistoryService {
       });
       return res;
     }
+
+  async findTenByAccounts(accounts) {
+    console.log(accounts)
+    const res = await models.ViewTransactionHistory.findAll({
+      where: {
+        cuenta: {
+          [Op.in]: accounts,
+        },
+      },
+      order: [['fecha', 'DESC']],
+      limit: 10
+    });
+    return res;
+  }
 
     async create(data) {
       const res = await models.ViewTransactionHistory.create(data);

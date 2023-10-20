@@ -4,9 +4,10 @@ const transactionHistoryController = require('../controllers/transaction-history
 
 router
     .get('/', transactionHistoryController.get )
-    .get('/:initDate/:endDate', transactionHistoryController.getByDate )
+    .get('/:account/:initDate/:endDate', transactionHistoryController.getByDate )
     .get('/:id', transactionHistoryController.getById )
     .post('/', transactionHistoryController.create )
+    .post('/accounts', transactionHistoryController.getByAccounts )
     .put('/:id', transactionHistoryController.update )
     .delete('/:id', transactionHistoryController._delete );
 
