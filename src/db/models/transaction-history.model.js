@@ -52,6 +52,12 @@ const ViewTransactionHistorySchema = {
     },
     banco: {
         type: DataTypes.INTEGER
+    },
+    moneda: {
+        type: DataTypes.STRING
+    },
+    tasa_cambio: {
+        type: DataTypes.DOUBLE
     }
 };
 

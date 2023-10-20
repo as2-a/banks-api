@@ -36,6 +36,9 @@ const BanksSchema = {
     BNC_IMAGEN: {
         type: DataTypes.STRING(25), 
     },
+    bnc_tasa_cambio: {
+        type: DataTypes.DOUBLE
+    }
 };
 
 module.exports = { Banks, BanksSchema };
