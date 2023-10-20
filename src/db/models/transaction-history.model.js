@@ -50,6 +50,9 @@ const ViewTransactionHistorySchema = {
     cuenta: {
         type: DataTypes.INTEGER
     },
+    banco: {
+        type: DataTypes.INTEGER
+    }
 };
 
 module.exports = { ViewTransactionHistory, ViewTransactionHistorySchema };
