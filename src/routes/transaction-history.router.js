@@ -4,6 +4,7 @@ const transactionHistoryController = require('../controllers/transaction-history
 
 router
     .get('/', transactionHistoryController.get )
+    .get('/search', transactionHistoryController.getTransactionsByParams) 
     .get('/:account/:initDate/:endDate', transactionHistoryController.getByDate )
     .get('/:id', transactionHistoryController.getById )
     .post('/', transactionHistoryController.create )

@@ -69,6 +69,16 @@ const _delete = async (req, res) => {
   }
 };
 
+const getTransactionsByParams = async (req, res) => {
+  try {
+  const { account = null, bank = null, initDate = null, endDate = null } = req.query;
+  const response = await service.findByDateOrAccountOrBank(account, bank, initDate, endDate);
+  res.json(response);
+  } catch (error) {
+    res.status(500).send({ success: false, message: error.message });
+  }
+}
+
 module.exports = {
   create,
   get,
@@ -76,5 +86,6 @@ module.exports = {
   update,
   _delete,
   getByDate,
-  getByAccounts
+  getByAccounts,
+  getTransactionsByParams
 };
