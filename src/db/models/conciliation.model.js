@@ -38,7 +38,10 @@ const ConciliationSchema = {
     },
     CON_DIFERENCIA: {
         type: DataTypes.DOUBLE
-    }
+    },
+    cnt_cuenta: {
+        type: DataTypes.INTEGER
+    } 
 };
 
 module.exports = { Conciliation, ConciliationSchema };

@@ -45,7 +45,7 @@ const TransactionSchema = {
     },
     TDO_TIPO_DOCUMENTO: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: 'DocumentType',
             key: 'TDO_TIPO_DOCUMENTO'
@@ -67,7 +67,7 @@ const TransactionSchema = {
     },
     CON_CONCILIACION: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: 'Conciliation',
             key: 'CON_CONCILIACION'
